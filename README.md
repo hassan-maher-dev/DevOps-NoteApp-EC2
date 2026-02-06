@@ -57,17 +57,3 @@ mysqldump -u app_user -p notes_db > /backup/notes_backup_$(date +%F).sql
 ✅ Usage
 The application is running on port 80. Users can submit notes which are saved to the database and displayed with timestamps.
 
-
-```mermaid
-graph TD;
-    User((👤 User)) -->|HTTP:80| EC2[AWS EC2 Instance<br/>RHEL 10];
-    subgraph EC2 [AWS EC2 Instance]
-        App[🐍 Python Flask App] -->|Reads/Writes| DB[(🐬 MariaDB)];
-    end
-    DB -->|mysqldump| BackupVol[(💽 EBS Backup Volume<br/>/backup)];
-    RootVol[(💽 Root EBS Volume<br/>/)] -.-> EC2;
-    BackupVol -.->|Mounted| EC2;
-
-    style EC2 fill:#f9f2f4,stroke:#333,stroke-width:2px;
-    style BackupVol fill:#ffaaaa,stroke:#333,stroke-width:2px;
-    style DB fill:#e1f5fe,stroke:#333;```
