@@ -57,3 +57,9 @@ mysqldump -u app_user -p notes_db > /backup/notes_backup_$(date +%F).sql
 ✅ Usage
 The application is running on port 80. Users can submit notes which are saved to the database and displayed with timestamps.
 
+
+
+
+
+<img width="2076" height="1086" alt="aws-noteapp-architecture" src="https://github.com/user-attachments/assets/c89e9588-5947-4923-8534-05c82e435a29" />
+
